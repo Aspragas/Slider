@@ -7,7 +7,13 @@ class Image:
     """Image class."""
 
     def __init__(self, image_array: list[int] | None = None) -> None:
-        """Initialization of Image class."""
+        """Initializes Image class. If an image_array is not given then we should read
+        from a file using read() function.
+
+        Args:
+            image_array (list[int] | None, optional): To create an image with given image array.
+            Defaults to None.
+        """  # noqa: D205
         self._image_matrix: np.typing.NDArray[np.int64] = np.array(image_array, ndmin=3)
 
     def __repr__(self) -> str:

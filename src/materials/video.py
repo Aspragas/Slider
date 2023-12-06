@@ -33,7 +33,11 @@ class Video:
                 break
 
     def get_last_frame(self) -> Image:
-        """Last frame of video will be used to create an Image Object and returns this Image Object."""
+        """Gets only the last frame of video.
+
+        Returns:
+            Image: Last frame of video will be returned!
+        """
         last_frame: Image = self._frames[-1]
         return last_frame
 
