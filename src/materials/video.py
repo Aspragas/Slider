@@ -1,5 +1,6 @@
 """Video Class."""
 import cv2 as cv
+from materials import Image
 
 
 class Video:
@@ -8,6 +9,7 @@ class Video:
     def __init__(self) -> None:
         """Initialization of Video class."""
         self._capture: cv.VideoCapture = cv.VideoCapture()
+        self._frames: list[Image] = []
 
     def read(self, video: str | int) -> None:
         """Reading video."""
@@ -17,6 +19,7 @@ class Video:
         """Showing video."""
         while True:
             ret, frame = self._capture.read()
+            self._frames.append(Image(frame))
 
             if not ret:
                 # Break the loop if no more frames are available
@@ -28,6 +31,11 @@ class Video:
             key = cv.waitKey(20) & 0xFF
             if key == 27:
                 break
+
+    def get_last_frame(self) -> Image:
+        """Last frame of video will be used to create an Image Object and returns this Image Object."""
+        last_frame: Image = self._frames[-1]
+        return last_frame
 
     def release(self) -> None:
         """Releasing video."""

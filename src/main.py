@@ -14,3 +14,6 @@ if __name__ == '__main__':
     video.read('resources/videos/dog.mp4')
     video.show('Deneme Kopek Video - ESC to Exit')
     video.release()
+
+    last_frame: Image = video.get_last_frame()
+    last_frame.show('Last frame')

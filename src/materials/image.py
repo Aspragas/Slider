@@ -6,9 +6,13 @@ import numpy as np
 class Image:
     """Image class."""
 
-    def __init__(self) -> None:
+    def __init__(self, image_array: list[int] | None = None) -> None:
         """Initialization of Image class."""
-        self._image_matrix: np.typing.NDArray[np.int64] = np.array(None, ndmin=3)
+        self._image_matrix: np.typing.NDArray[np.int64] = np.array(image_array, ndmin=3)
+
+    def __repr__(self) -> str:
+        """Str class override."""
+        return f'Shape is {self.shape}.\nData is {self._image_matrix}'
 
     def read(self, image: str) -> None:
         """Reading image."""
