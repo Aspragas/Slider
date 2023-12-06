@@ -1,0 +1,12 @@
+numpy
+
+[dev]
+isort
+mypy
+pytest
+pytest-cov
+ruff
+sphinx
+sphinx-autodoc-typehints
+sphinx-rtd-theme
+yapf
