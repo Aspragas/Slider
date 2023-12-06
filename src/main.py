@@ -12,5 +12,5 @@ if __name__ == '__main__':
 
     video: Video = Video()
     video.read('resources/videos/dog.mp4')
-    video.show('Deneme Kopek Video')
+    video.show('Deneme Kopek Video - ESC to Exit')
     video.release()

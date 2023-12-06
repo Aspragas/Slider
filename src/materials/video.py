@@ -15,11 +15,18 @@ class Video:
 
     def show(self, window_title: str) -> None:
         """Showing video."""
-        while self._capture.read()[0]:
-            frame = self._capture.read()[1]
+        while True:
+            ret, frame = self._capture.read()
+
+            if not ret:
+                # Break the loop if no more frames are available
+                break
+
             cv.imshow(window_title, frame)
 
-            if cv.waitKey(20) and ord('d') == 0xFF:
+            # Check for the 'ESC' key (27 is the ASCII code for ESC)
+            key = cv.waitKey(20) & 0xFF
+            if key == 27:
                 break
 
     def release(self) -> None:
