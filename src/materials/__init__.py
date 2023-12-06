@@ -1,4 +1,4 @@
-"""A grader implementation."""
+"""A material implementation."""
 
 from .image import Image
 from .sound import Sound
