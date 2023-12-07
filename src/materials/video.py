@@ -38,8 +38,8 @@ class Video:
         Returns:
             Image: Last frame of video will be returned!
         """
-        last_frame: Image = self._frames[-1]
-        return last_frame
+        # The all last frame is 'None' so we are returning Image index -2.
+        return self._frames[-2]
 
     def release(self) -> None:
         """Releasing video."""

@@ -20,6 +20,9 @@ if __name__ == '__main__':
 
     Logger.critical('video released.')
 
+    # TODO(Can Inal): Last frame will not be available
+    # if we do not manually close the video window with ESC
+    # https://github.com/Aspragas/Slider/issues/1
     last_frame: Image = video.get_last_frame()
     last_frame.show('Last frame')
 
