@@ -17,9 +17,8 @@ class Recognizer:
             image (Image): _description_
 
         Returns:
-            list[list[tuple[str, list[tuple[npt.NDArray[np.int64], str]] | tuple[str, npt.NDArray[np.int64]]]]]:
-            _description_
-        """  # noqa: E501
+            list[str]: _description_
+        """
         image_ocr = [keras_ocr.tools.read(image.image_array)]
         results = self._pipeline.recognize(image_ocr)
         words: list[str] = [
