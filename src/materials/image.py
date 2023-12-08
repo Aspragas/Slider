@@ -8,7 +8,7 @@ class Image:
     """Image class."""
 
     def __init__(self, image_array: list[int] | None = None) -> None:
-        """Initializes Image class. If an image_array is not given then we should read
+        """Initialization of Image class. If an image_array is not given then we should read
         from a file using read() function.
 
         Args:

@@ -1,30 +1,24 @@
-"""Image class with some attributes and main function."""
-import tensorflow as tf
-from materials import Image, Sound, Video
+"""Entry point of application with main function."""
+import os
+
+from api import Recognizer
+from materials import Image
 from utils import Logger
+
+# To hide warnings from tensorflow. Because we are using CPU not GPU.
+# FIX IT!
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 if __name__ == '__main__':
 
-    print('TensorFlow version:', tf.__version__)
+    Logger.info('Logger started.')
 
     image: Image = Image()
-    image.read('resources/photos/cat.jpg')
-    image.show('Cat Picture')
+    image.read('resources/photos/ocr.jpg')
+    image.show('Test Data')
 
-    Logger.debug('image closed.')
+    print(image.image_array)
 
-    video: Video = Video()
-    video.read('resources/videos/dog.mp4')
-    video.show('Dog Video - ESC to Exit')
-    video.release()
-
-    Logger.critical('video released.')
-
-    last_frame: Image = video.get_last_frame()
-    last_frame.show('Last frame')
-
-    sound: Sound = Sound()
-    sound.play('Hellooo')
-    sound.play([1, 3, 5, 6, 4])
-
-    Logger.error('Done.')
+    recognizer: Recognizer = Recognizer()
+    results = recognizer.recognize(image)
+    print(results)

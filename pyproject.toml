@@ -67,7 +67,7 @@ split_on_trailing_comma = true
 
 
 [tool.mypy]
-disallow_any_explicit = true
+disallow_any_explicit = true 
 explicit_package_bases = true
 fast_module_lookup = true
 mypy_path = "src"
